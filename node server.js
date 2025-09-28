@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-const REAL_FLAG = "flag{this_is_the_real_flag}";
+const REAL_FLAG = "UMBC2025CTF{c4ctur3_th3_f149}";
 
 app.use(express.static('public'));
 app.use(express.json());
