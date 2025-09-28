@@ -1,1 +1,34 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hack2025b-Project</title>
+</head>
+<body>
+  <h3>Welcome to our website!</h3>
+  <p>
+    Today, your mission is to figure out the flag which is hidden somewhere on this website.
+    <br>
+    Do you think you can do it?
+    <br>
+    Good luck! You'll need it.
+  </p>
+  
+  <input type="text" id="inputBox" placeholder="Type here...">
+  <button onclick="checkFlag()">Submit</button>
+  <p id="result"></p>
+  <script>
+    function checkFlag() {
+      const userInput = document.getElementById('inputBox').value;
+      fetch('/check-flag', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ userInput })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('result').textContent = data.result;
+      });
+    }
+  </script>
+</body>
+</html>
